@@ -13,7 +13,10 @@ raw_data = yf.download(
     progress=False,
 )
 prices = pd.DataFrame(
-    {"SP500": raw_data["^GSPC"]["Close"], "BTC": raw_data["BTC-USD"]["Close"]}
+    {
+        "SP500": raw_data["^GSPC"]["Close"],
+        "BTC": raw_data["BTC-USD"]["Close"],
+    }  # Pobranie S&P500 i BTC
 )
 prices.index = pd.to_datetime(prices.index)
 prices.index.name = "Date"
