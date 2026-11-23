@@ -27,7 +27,7 @@ for year, yearly_returns in log_returns.groupby(log_returns.index.year):
     yearly_results.append(
         {
             "Year": year,
-            "Correlation": correlation,
+            "Pearson Correlation": correlation,
             "Observations": observations,
         }
     )
@@ -36,7 +36,7 @@ correlation_by_year = pd.DataFrame(yearly_results).set_index("Year")
 
 rolling_correlation = log_returns["SP500"].rolling(window=90).corr(log_returns["BTC"])
 
-rolling_correlation.name = "Rolling Rorrelation (90 observations)"
+rolling_correlation.name = "Rolling Correlation (90 observations)"
 
 
 correlation_summary = pd.DataFrame(
